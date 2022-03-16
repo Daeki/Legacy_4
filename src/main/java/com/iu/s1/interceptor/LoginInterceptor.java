@@ -10,12 +10,15 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.iu.s1.member.MemberDTO;
 
-@Component
+
 public class LoginInterceptor extends HandlerInterceptorAdapter {
 	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
+		
+		System.out.println("Login Interceptor");
+		
 		MemberDTO memberDTO =  (MemberDTO)request.getSession().getAttribute("member");
 		
 		boolean check=true;

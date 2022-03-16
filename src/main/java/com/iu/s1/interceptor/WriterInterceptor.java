@@ -23,7 +23,7 @@ public class WriterInterceptor extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		boolean check=true;
-		
+		System.out.println("Writer Interceptor");
 		Long num = Long.parseLong(request.getParameter("num"));
 		BoardDTO boardDTO = new QnaDTO();
 		boardDTO.setNum(num);
