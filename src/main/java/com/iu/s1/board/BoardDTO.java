@@ -7,7 +7,7 @@ public class BoardDTO {
 	private String title;
 	private String writer;
 	private String contents;
-	private Date regDate;
+	private Date regDate;//년-월-일, 년/월/일 ''
 	private Long hit;
 	
 	public Long getNum() {
