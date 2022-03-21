@@ -17,6 +17,7 @@
    		<typeAlias type="com.iu.s1.board.notice.NoticeFileDTO" alias="NoticeFileDTO"/>
    		<typeAlias type="com.iu.s1.board.qna.QnaFileDTO" alias="QnaFileDTO"/>
    		<typeAlias type="java.util.List" alias="List"/>
+   		<typeAlias type="com.iu.s1.board.notice.noticeReply.NoticeReplyDTO" alias="NoticeReplyDTO"/>
     </typeAliases>
   </configuration>
 
