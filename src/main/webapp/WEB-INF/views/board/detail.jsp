@@ -24,13 +24,14 @@
 	
 	<hr>
 	
-	<form action="../noticeReply/add" method="post"  enctype="application/x-www-form-urlencoded">
+	<div>
 		<input type="hidden" name="num" value="${dto.num}" id="num">
 		<input type="text" readonly name="writer" value="${member.id}" id="writer">
 		<textarea rows="" cols="" name="contents" id="contents"></textarea>
 		<button type="button" id="reply">REPLY</button>
-	</form>
+	</div>
 	
+
 	<table id="replyResult">
 		
 	
@@ -50,5 +51,6 @@
 	</c:if>
 	
 	<script src="../resources/js/noticeReply.js"></script>
+
 </body>
 </html>

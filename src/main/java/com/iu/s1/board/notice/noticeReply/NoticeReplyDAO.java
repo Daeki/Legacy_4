@@ -13,6 +13,10 @@ public class NoticeReplyDAO {
 	
 	private String NAMESPACE="com.iu.s1.board.notice.noticeReply.NoticeReplyDAO.";
 	
+	public int delete(NoticeReplyDTO noticeReplyDTO)throws Exception{
+		return sqlSession.delete(NAMESPACE+"delete", noticeReplyDTO);
+	}
+	
 	public int add(NoticeReplyDTO noticeReplyDTO)throws Exception{
 		return sqlSession.insert(NAMESPACE+"add", noticeReplyDTO);
 	}
