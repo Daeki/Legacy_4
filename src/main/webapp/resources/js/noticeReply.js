@@ -3,7 +3,74 @@ const num = document.querySelector("#num");
 const writer = document.querySelector("#writer");
 const contents = document.querySelector("#contents");
 const replyResult = document.querySelector("#replyResult");
-const del = document.querySelectorAll(".del");
+//const del = document.querySelectorAll(".del");
+
+//-----------------------
+// **** UPDATE *****
+replyResult.addEventListener("click", function(event){
+    if(event.target.classList.contains('update')){
+        //event.target.classList.replace('update', 'reply');
+
+        //event.target.parentNode.previousSibling.previousSibling.previousSibling.previousSibling
+        let num=event.target.getAttribute('data-index'); //num
+        let replyNum= document.querySelector("#up"+num); //td
+
+        let text = replyNum.innerText;
+        replyNum.innerText='';
+
+        let tx = document.createElement('textarea');
+        tx.setAttribute("id", "update"+num);
+        tx.classList.add("reply");
+        tx.setAttribute("data-num", num);
+        tx.value=text;
+        
+        console.log(tx);
+        replyNum.append(tx);
+
+
+    }
+
+});
+
+
+replyResult.addEventListener("change", function(event){
+    if(event.target.classList.contains('reply')){
+        let contents = event.target.value;
+        let replyNum=event.target.getAttribute("data-num");
+
+        let check = window.confirm("수정???"); //.확인 : true, 취소 : false
+
+        if(check){
+            let xhttp = new XMLHttpRequest();
+
+            xhttp.open("POST", "../noticeReply/update");
+        
+            //요청 header 정보
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    
+            xhttp.send("replyNum="+replyNum+"&contents="+contents);
+    
+    
+            xhttp.onreadystatechange=function(){
+                if(this.readyState==4 && this.status==200){
+                    if(this.responseText.trim()=='1'){
+                        alert('수정 성공');
+                        document.querySelector("#up"+replyNum).innerHTML=contents;
+                    }else {
+                        alert('수정 실패');
+                    }
+                }
+            }
+            
+        }
+
+
+
+        }
+
+    
+
+});
 
 
 //-----------------------

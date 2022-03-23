@@ -4,6 +4,11 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
  <mapper namespace="com.iu.s1.board.qna.QnaDAO">
+ 	<delete id="fileDelete" parameterType="QnaFileDTO">
+ 		DELETE QNAFILE WHERE FILENUM=#{fileNum}
+ 	</delete>
+ 
+ 
  	<select id="listFile" parameterType="BoardDTO" resultType="QnaFileDTO">
  		SELECT * FROM QNAFILE
  		WHERE NUM=#{num}

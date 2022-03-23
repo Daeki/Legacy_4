@@ -11,6 +11,10 @@ public class NoticeReplyService {
 	@Autowired
 	private NoticeReplyDAO noticeReplyDAO;
 	
+	public int update(NoticeReplyDTO noticeReplyDTO)throws Exception{
+		return noticeReplyDAO.update(noticeReplyDTO);
+	}
+	
 	public int delete(NoticeReplyDTO noticeReplyDTO)throws Exception{
 		return noticeReplyDAO.delete(noticeReplyDTO);
 	}

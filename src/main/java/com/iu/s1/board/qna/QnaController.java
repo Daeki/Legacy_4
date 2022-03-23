@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
@@ -26,6 +27,17 @@ public class QnaController {
 	@ModelAttribute("board")
 	public String board() {
 		return "qna";
+	}
+	
+	@PostMapping("fileDelete")
+	public ModelAndView fileDelete(QnaFileDTO qnaFileDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		System.out.println(qnaFileDTO.getFileNum());
+		int result = qnaService.fileDelete(qnaFileDTO);
+		
+		mv.setViewName("common/ajaxResult");
+		mv.addObject("result", result);
+		return mv;
 	}
 	
 	@RequestMapping(value = "fileDown", method=RequestMethod.GET)

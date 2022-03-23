@@ -4,6 +4,11 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
  <mapper namespace="com.iu.s1.board.notice.noticeReply.NoticeReplyDAO">
+ 	<update id="update" parameterType="NoticeReplyDTO">
+ 		update NOTICEREPLY SET CONTENTS = #{contents} WHERE REPLYNUM=#{replyNum}
+ 	</update>
+ 	
+ 	
  	<delete id="delete" parameterType="NoticeReplyDTO">
  		DELETE NOTICEREPLY WHERE REPLYNUM=#{replyNum}
  	</delete>
